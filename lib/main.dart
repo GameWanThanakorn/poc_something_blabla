@@ -59,10 +59,11 @@ class _MyHomePageState extends State<MyHomePage> {
         print("i is 9");
       }
     }
-   final j = 0;
-   while (j < vv) {
-     print("j is $j");
-   }
+    final j = 0;
+    while (j < vv) {
+      print("j is $j");
+      break;
+    }
   }
 
   void _incrementCounter() {
