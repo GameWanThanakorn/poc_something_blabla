@@ -31,8 +31,11 @@ jobs:
         with:
           flutter-version: '3.24.3'
           channel: 'stable'
+        
+      - name: Set up Node
+        uses: actions/setup-node@v4
 
-        #4 clean Flutter    
+    
       - name: Install dependencies Node
         run: npm install
   
@@ -44,9 +47,7 @@ jobs:
       - name: Install Dependencies Flutter
         run: flutter pub get
 
-        #7 Install Dependencies Node
-      - name: Set up Node
-        uses: actions/setup-node@v4
+
         
         #8 Run Tests
       - name: Run tests
