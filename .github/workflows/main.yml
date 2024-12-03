@@ -52,7 +52,7 @@ jobs:
           echo "Golden files zipped"
 
       - name: Upload Coverage to Codecov
-        run: bash <(curl -s https://codecov.io/bash) -f coverage/lcov.info
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f coverage/lcov.info
         
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
