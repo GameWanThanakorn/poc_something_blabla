@@ -41,7 +41,7 @@ jobs:
         run: flutter pub get
 
       - name: Run tests
-        run: dart pub run test --coverage="coverage"
+        run: flutter test --coverage
 
       - name: Install coverage tools
         run: dart pub global activate coverage
