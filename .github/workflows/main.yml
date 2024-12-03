@@ -32,13 +32,6 @@ jobs:
           flutter-version: '3.24.3'
           channel: 'stable'
         
-      - name: Set up Node
-        uses: actions/setup-node@v4
-
-    
-      - name: Install dependencies Node
-        run: npm install
-  
         #5 clean Flutter 
       - name: Clean Flutter
         run: flutter clean
@@ -49,7 +42,14 @@ jobs:
 
 
         
-        #8 Run Tests
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+  
+      - name: Install dependencies
+        run: npm install
+  
       - name: Run tests
         run: npx jest --coverage
         
