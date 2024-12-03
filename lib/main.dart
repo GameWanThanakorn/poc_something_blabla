@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Main());
+  runApp(const MyApp());
 }
 
-class Main extends StatelessWidget {
-  const Main({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,17 +30,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  confdiriontest() {
-    _counter > 0 ? "s" : "w";
-  }
 
-  consww() {
-    if (_counter > 0) {
-      print("s");
-    } else {
-      print("w");
-    }
-  }
 
   void complexFunctionWithLoops({
     required int value,
@@ -81,8 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    complexFunctionWithLoops(value: 10000, v: 10000, v2: 10000, v3: 10000, valueStr: "10000");
-    consww();
     super.initState();
   }
 
