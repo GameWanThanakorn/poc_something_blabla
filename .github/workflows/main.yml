@@ -10,8 +10,8 @@ on:
 
 jobs:  
   build:      
-    name: Build & Release 
-    runs-on: macos-latest 
+    name: Build
+    runs-on: ubuntu-latest
 
     steps:
         #1 Checkout Repository
@@ -40,21 +40,18 @@ jobs:
       - name: Install Dependencies Flutter
         run: flutter pub get
 
-
-        
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '16'
-  
-      - name: Install dependencies
-        run: npm install
-  
       - name: Run tests
-        run: npx jest --coverage
+        run: dart pub run test --coverage="coverage"
+
+      - name: Install coverage tools
+        run: dart pub global activate coverage
+
+      - name: format coverage
+        run: $HOME/.pub-cache/bin/format_coverage --lcov --in=coverage --out=coverage.lcov --packages=.packages --report-on=lib
         
-        #9 Codecov
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
+          files: coverage.lcov
+          verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
