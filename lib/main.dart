@@ -30,8 +30,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-
-
   void complexFunctionWithLoops({
     required int value,
     required int v,
@@ -61,6 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
         print("i is 9");
       }
     }
+   final j = 0;
+   while (j < vv) {
+     print("j is $j");
+   }
   }
 
   void _incrementCounter() {
@@ -71,6 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    complexFunctionWithLoops(
+      value: 1,
+      v: 2,
+      v2: 3,
+      v3: 4,
+      valueStr: "value",
+    );
     super.initState();
   }
 

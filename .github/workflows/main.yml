@@ -46,6 +46,14 @@ jobs:
       - name: Install coverage tools
         run: dart pub global activate coverage
 
+      - name: Upload Golden Files
+        run: |
+          zip -r golden_files.zip test/goldens
+          echo "Golden files zipped"
+
+      - name: Upload Coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash) -f coverage/lcov.info
+        
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
